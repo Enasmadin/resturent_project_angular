@@ -1,0 +1,32 @@
+<mat-card   style="background-color: rgb(100, 17, 148); color: aliceblue;">
+
+  <span><img src="/assets/images/logo.png" height=30 width=41></span>
+   <a mat-button> <fa-icon [icon]="house" routerLink="/home" ></fa-icon>Home</a> 
+  <a mat-button>  <fa-icon [icon]="fainfo" routerLink="/About" ></fa-icon> About</a>
+  <a mat-button>  <fa-icon [icon]="falist"  routerLink="/menu"></fa-icon> Menu</a>
+  <a mat-button>  <fa-icon [icon]="facard"  routerLink="/contact"></fa-icon> Contact</a>
+  <span class="flex-spacer"></span>
+  <a mat-button (click)="openLoginForm()"><span class="fa fa-sign-in fa-lg"></span> Login</a>
+</mat-card>
+
+
+<div class="container jumbotron"
+    fxLayout="row"
+    fxLayout.sm="column"
+    fxLayout.xs="column"
+    fxLayoutAlign.xs="start center"
+    fxLayoutAlign.sm="start center"
+    fxLayoutAlign.gt-sm="center center"
+    fxLayoutGap="10px"
+    style="background-color: rgb(180, 124, 212); color: antiquewhite;">
+
+  <div fxFlex fxFlex.gt-sm="50%" style="margin-top: 30px; width: 100%;">
+    <h1>Ristorante Con Fusion</h1>
+    <p>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations
+      will tickle your culinary senses!</p>
+  </div>
+  <div fxFlex fxFlex.gt-sm="20%">
+    <img src="/assets/images/logo.png" alt="Logo">
+  </div>
+  <!-- <div fxFlex></div> -->
+</div>

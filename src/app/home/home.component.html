@@ -1,0 +1,35 @@
+<div class="card-group m-4" [@expand] [@flyInOut] >
+  <div class="card" *ngFor="let dish of dishers">
+    <h5 class="card-title text-center"> {{ dish.name}}</h5>
+    <div class="card-body">
+      <img  src={{dish.image}} class="card-img-top" alt="...">
+      <p class="card-text"> {{dish.description}}</p>
+    </div>
+    <!-- <a class=" btn btn-secondary" [routerLink]="['/Menu',dish.id]"> detalies </a> -->
+  </div>
+  <div class="card"  [@expand] [@flyInOut] >
+    <h5 class="card-title text-center"> {{ leaders.name}}</h5>
+    <div class="card-body">
+      <img  src={{leaders.image}} class="card-img-top" alt="...">
+      <p class="card-text"> {{ leaders.designation}}</p>
+      <p class="card-text"> {{ leaders.description}}</p>
+    </div>
+</div>
+
+ <div [hidden]=" dishers|| errMess">
+
+
+</div>
+
+</div>
+<div fxFlex *ngIf="errMess">
+  <h2>Error</h2>
+  <h4>{{errMess}}</h4>
+</div>
+
+
+
+
+
+
+

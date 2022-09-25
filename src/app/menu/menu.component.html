@@ -1,0 +1,17 @@
+
+
+ <mat-card  style="background-color: rgb(122, 10, 150); color: aliceblue;" > Restrante con Fusien </mat-card>
+
+<mat-grid-list cols="2" rowHeight="2:1"  [@expand]  >
+  <h1> Menu </h1>
+  <hr>
+  <mat-grid-tile  *ngFor="let dish of dishes" appColor >
+   <img  src={{dish.image}} alt={{dish.name}}> <br>
+
+   <br>
+   <mat-grid-tile-footer  > {{dish.name | uppercase}}  </mat-grid-tile-footer>
+   <a class=" btn btn-secondary" [routerLink]="['/Menu',dish.id]"> detalies </a>
+  </mat-grid-tile>
+
+</mat-grid-list>
+

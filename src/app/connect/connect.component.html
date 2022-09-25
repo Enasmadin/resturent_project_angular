@@ -1,0 +1,93 @@
+
+<div class="m-3">
+   <h4>Contact Us </h4>
+  <hr>
+</div>
+<div class="m-3">
+   <h4> Location Information</h4>
+</div>
+
+
+<div class="ms-5">
+  <h3 class=" mb-0">  our address </h3>
+
+  <address style="text-size: 80%">
+    121, Clear Water Bay Road<br> Clear Water Bay, Kowloon<br> HONG KONG<br>
+    <i class="fa fa-phone"></i>: +852 1234 5678<br>
+    <i class="fa fa-fax"></i>: +852 8765 4321<br>
+    <i class="fa fa-envelope"></i>:
+    <a href="mailto:confusion@food.net">confusion@food.net</a>
+  </address>
+</div>
+
+<button type="button" class="btn btn-light shadow p-3 ms-5"> <i class="fa fa-phone"></i> call</button>
+<button type="button" class="btn btn-light shadow p-3 ms-3"> <i class="fa-brands fa-skype"></i> skype</button>
+<button type="button" class="btn btn-light shadow p-3 ms-3"> <i class="fa fa-envelope"></i> email</button>
+
+<div class=" m-5 " [@openClose]="isOpen ? 'closed' : 'open'">
+  <h3> map of our location  </h3>
+  <!-- <mat-list role="list" *ngFor="let coment of feedback">
+    <mat-list-item role="listitem"> {{ coment. rating}} </mat-list-item>
+    <mat-list-item role="listitem">  {{coment. comment}}</mat-list-item>
+    <mat-list-item role="listitem"> {{ coment. author}} </mat-list-item>
+
+  </mat-list> -->
+  <!-- <p> {{feedback.firstname}}</p> -->
+
+  <!-- <p>{{ feedbackForm.value | json }} {{ feedbackForm.status | json }}</p> -->
+
+
+  <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()"  >
+    <p>
+      <mat-form-field class="half-width">
+        <input matInput formControlName="firstname" placeholder="First Name" type="text">
+      </mat-form-field>
+      <mat-form-field class="half-width">
+        <input matInput formControlName="lastname" placeholder="Last Name" type="text">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="half-width">
+        <input matInput formControlName="telnum" placeholder="Tel. Number" type="tel">
+      </mat-form-field>
+      <mat-form-field class="half-width">
+<input matInput formControlName="email" placeholder="Email" type="email">
+</mat-form-field>
+</p>
+<table class="form-size">
+<td>
+  <mat-slide-toggle formControlName="agree">May we contact you?</mat-slide-toggle>
+</td>
+<td>
+  <mat-select placeholder="How?" formControlName="contacttype">
+    <mat-option *ngFor="let ctype of contactType" [value]="ctype">
+      {{ ctype }}
+    </mat-option>
+  </mat-select>
+</td>
+</table>
+<p>
+<mat-form-field class="full-width">
+  <textarea matInput formControlName="message" placeholder="Your Feedback" rows=12></textarea>
+</mat-form-field>
+</p>
+<button type="submit" mat-button class="background-primary text-floral-white" (click)="toggle()">Submit</button>
+</form>
+</div>
+
+
+<div class="m-5" [@openClose]="isOpen ? 'open' : 'closed'">
+  <div [hidden]="model">
+    <!-- <mat-spinner></mat-spinner> -->
+      <h4>Loading . . . Please Wait</h4>
+ </div>
+  <h5> send us your fead back </h5>
+  <h5> your submission </h5>
+<p>  first name :{{ model.firstname}}</p>
+<p>  last name :{{ model.lastname}}</p>
+<p>   Tel.number :{{ model.telnum}}</p>
+<p>  EMail:{{ model.email}}</p>
+<p>  contact you :{{ model. agree}}</p>
+<p> How ? : {{model. contacttype}}</p>
+<p> Feadback: {{model.message}}</p>
+</div>

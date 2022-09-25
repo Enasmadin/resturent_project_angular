@@ -1,0 +1,85 @@
+<div class="container"
+    fxLayout="row"
+    fxLayout.sm="column"
+    fxLayout.xs="column"
+    fxLayoutAlign.gt-md="space-around center"
+    fxLayoutGap="10px"
+    fxLayoutGap.xs="0">
+
+  <div fxFlex="20"  [@visibility]="visibility" [@expand] *ngIf="prddet" >
+    <mat-card class="example-card">
+      <mat-card-header>
+
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>  {{ prddet.name |uppercase}} </mat-card-title>
+
+      </mat-card-header>
+       <img mat-card-image src={{prddet.image}} alt="Photo of a Shiba Inu">
+        <!-- <img height="200px" src={{ BaseURL + prddet.image }} alt={{prddet.image}}>  -->
+       <!-- <img height="200px" src="{{ baseURL + prddet.image }}" alt={{prddet.image}}> -->
+
+
+     <mat-card-actions>
+
+
+        <button type="button" class="btn btn-warning" (click)=" goback()">Back</button>&nbsp;
+
+
+        <button mat-button [routerLink]="['/Menu', prev]"><span class="fa fa-chevron-left fa-lg"></span></button>
+
+
+        <span class="flex-spacer"></span>
+        <button mat-button [routerLink]="['/Menu', next]"><span class="fa fa-chevron-right fa-lg"></span></button>
+    </mat-card-actions>
+  </mat-card>
+  </div>
+
+  <div fxFlex="40">
+ <mat-card  style="background-color: rgb(122, 10, 150); color: aliceblue;">  comments  </mat-card>
+
+
+
+
+     <mat-list role="list" *ngFor="let coment of prddet.comments">
+      <mat-list-item role="listitem"> {{ coment. rating}} </mat-list-item>
+      <mat-list-item role="listitem">  {{coment. comment}}</mat-list-item>
+      <mat-list-item role="listitem"> {{ coment. author}} </mat-list-item>
+
+
+
+    </mat-list>
+
+
+
+ <p> {{feedbackForm.value }} </p>
+
+
+<form novalidate [formGroup]="feedbackForm" #fform="ngForm" (ngSubmit)="onSubmit()" [@expand]>
+  <mat-form-field class="half-width">
+    <input matInput formControlName="firstname" placeholder=" Name" type="text" required>
+    <mat-error *ngIf="formErrors.firstname">{{formErrors.firstname}}</mat-error>
+  </mat-form-field>
+
+  <mat-slider
+  thumbLabel
+  [displayWith]="formatLabel"
+  tickInterval="5"
+  step="1"
+  min="0"
+  max="5"
+  aria-label="units"  formControlName="rate"></mat-slider>
+  <mat-error *ngIf="formErrors.rate">{{formErrors.rate}}</mat-error>
+
+  <mat-form-field class="half-width">
+    <input matInput formControlName="comment" placeholder="yourcomment" type="text" required>
+    <mat-error *ngIf="formErrors.comment">{{formErrors.comment}}</mat-error>
+  </mat-form-field>
+
+
+
+  <button  [disabled]="feedbackForm.invalid" type="submit" class="btn btn-primary mb-3">Confirm identity</button>
+</form>
+</div>
+
+
+
